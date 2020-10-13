@@ -2,25 +2,25 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/tylertaewook/peertutor-emailbot">
+  <a href="https://github.com/tylertaewook/kentschool-emailbot">
     <img src="images/logo.png" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Kent School Peertutor Email Bot</h3>
+  <h3 align="center">Kent School Email Bot</h3>
 
   <p align="center">
-    ML texture analysis research in 2019 UF SSTP
+    Email bot to automate Peertutor & Wrting Lab scheduling for Kent School
   <p align="center">
       October 2020
     <br />
-    <a href="https://github.com/tylertaewook/peertutor-emailbot"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/tylertaewook/kentschool-emailbot"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/tylertaewook/peertutor-emailbot">View Demo</a>
+    <a href="https://github.com/tylertaewook/kentschool-emailbot">View Demo</a>
     ·
-    <a href="https://github.com/tylertaewook/peertutor-emailbot/issues">Report Bug</a>
+    <a href="https://github.com/tylertaewook/kentschool-emailbot/issues">Report Bug</a>
     ·
-    <a href="https://github.com/tylertaewook/peertutor-emailbot/issues">Request Feature</a>
+    <a href="https://github.com/tylertaewook/kentschool-emailbot/issues">Request Feature</a>
   </p>
 </p>
 
@@ -49,7 +49,7 @@
 
 Tyler Kim - taewook.kim@columbia.edu
 
-Project Link: [https://github.com/tylertaewook/peertutor-emailbot](https://github.com/tylertaewook/peertutor-emailbot)
+Project Link: [https://github.com/tylertaewook/kentschool-emailbot](https://github.com/tylertaewook/peertutor-emailbot)
 
 
 
