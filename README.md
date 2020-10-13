@@ -40,8 +40,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+Peer Tutor Signup
+
+Name:
+Email:
+Time Slot:
+Tutor:
+Help with:
 
 
+
+ARC Signup
+
+Name:
+Email:
+Time Slot:
+Course:
+Teacher:
 
 
 <!-- CONTACT -->
