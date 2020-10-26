@@ -12,16 +12,17 @@ Created on Tue Oct 13 18:28:00 2020
 # record it in ARC signup google sheet.
 # =============================================================================
 
-import ezsheets, datetime, ezgmail
+import ezsheets, datetime
 
 arcResp = (ezsheets.Spreadsheet('10DBMHzR7NVHHT8voEQdtZWnXWeZ_T19NPWbc3Cv5OmE')).sheets[0]
-emailBot = ezsheets.Spreadsheet('1DHee5woHPxNfU8PkcKXH3mOBhjJNywKVNPfb4drdv0g')
-arc = emailBot.sheets[1]
+arc = (ezsheets.Spreadsheet('1DHee5woHPxNfU8PkcKXH3mOBhjJNywKVNPfb4drdv0g')).sheets[1]
+
 # check for new line in arcResp
 i = 2
 while arc[1,i] != '':
     i +=1
-finalindex = 2
+finalindex = 2 #TODO: fix this finalindex to update properly
+#TODO: also this should be able to handle multiple submissions in 5min span
 
 latestDate = datetime.datetime.strptime(arcResp[1,finalindex], '%m/%d/%Y %H:%M:%S')
 now = datetime.datetime.now()
@@ -44,26 +45,27 @@ dictDays = {
   "Sundasy": [8,list(range(6,12))],
 }
 
-dictTimes = {
-  "8:00 - 8:20": 0,
-  "8:20 - 8:40": 1,
-  "8:40 - 9:00": 2,
-  "9:00 - 9:20": 3,
-  "9:20 - 9:40": 4,
-  "9:40 - 10:00": 5,
+dictTimes = {"8:00 - 8:20": 0,"8:20 - 8:40": 1,"8:40 - 9:00": 2,"9:00 - 9:20": 3,
+             "9:20 - 9:40": 4,"9:40 - 10:00": 5,
 }
 
 # only run code when latest entry was submitted in the last five minutes
 # if (now - latestDate).seconds <= 300:
-if True:
+if True: #TODO: maybe check if email in part of kent-school.edu domain
     # Check if that spot is empty
     row = dictDays[day][1][dictTimes[time]]
     col = dictDays[day][0]
     if not arc[col, row]:
         arc[col,row] = name
         arc[col+1,row] = f'{course} ({teacher})'
+        #TODO: send confirmation email to both 
     else:
         print('already booked; notify user')
+        #TODO: send 'already booked' email
+        
+        
 
-
-
+def sendEmail(email,name,day,time):
+    print()
+    #TODO: implement this
+    
