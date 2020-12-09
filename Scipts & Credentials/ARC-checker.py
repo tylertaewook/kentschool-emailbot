@@ -12,16 +12,18 @@ Created on Tue Oct 13 18:28:00 2020
 # record it in ARC signup google sheet.
 # =============================================================================
 
-import ezsheets, datetime
+import ezsheets, datetime, ezgmail
 
 arcResp = (ezsheets.Spreadsheet('10DBMHzR7NVHHT8voEQdtZWnXWeZ_T19NPWbc3Cv5OmE')).sheets[0]
 arc = (ezsheets.Spreadsheet('1DHee5woHPxNfU8PkcKXH3mOBhjJNywKVNPfb4drdv0g')).sheets[1]
+ezgmail.init()
 
 # check for new line in arcResp
-i = 2
+i = int(arcResp[13,2]) # where most recent numRows is saved
 while arc[1,i] != '':
     i +=1
-finalindex = 2 #TODO: fix this finalindex to update properly
+finalindex = i
+arcResp[13,2] = str(i)
 #TODO: also this should be able to handle multiple submissions in 5min span
 
 latestDate = datetime.datetime.strptime(arcResp[1,finalindex], '%m/%d/%Y %H:%M:%S')
@@ -42,7 +44,7 @@ dictDays = {
   "Wednesday": [8,list(range(6,12))],
   "Thursday": [2,list(range(6,12))],
   "Friday": [5,list(range(6,12))],
-  "Sundasy": [8,list(range(6,12))],
+  "Sunday": [8,list(range(6,12))],
 }
 
 dictTimes = {"8:00 - 8:20": 0,"8:20 - 8:40": 1,"8:40 - 9:00": 2,"9:00 - 9:20": 3,
@@ -51,21 +53,42 @@ dictTimes = {"8:00 - 8:20": 0,"8:20 - 8:40": 1,"8:40 - 9:00": 2,"9:00 - 9:20": 3
 
 # only run code when latest entry was submitted in the last five minutes
 # if (now - latestDate).seconds <= 300:
-if True: #TODO: maybe check if email in part of kent-school.edu domain
+if True:
     # Check if that spot is empty
     row = dictDays[day][1][dictTimes[time]]
     col = dictDays[day][0]
     if not arc[col, row]:
         arc[col,row] = name
         arc[col+1,row] = f'{course} ({teacher})'
-        #TODO: send confirmation email to both 
+
+        ezgmail.send(email, 'ARCBOT: Confirmation for your recent ARC reservation',f'''
+Dear {name},
+             
+This is an automated email to notify you of a recent ARC reservation.
+             
+Student: {name} ({form})
+Time: {day} {time}
+Teacher: {teacher} ({course})
+             
+             
+Best,
+ARCBOT
+             ''')
+        
     else:
         print('already booked; notify user')
         #TODO: send 'already booked' email
         
+        ezgmail.send(email, 'ARCBOT: Reservation failed',f'''
+Dear {name},
+             
+It seems like the time you chose has already been booked.
+Please check the google sheet and try with another time slot.
+             
+             
+Best,
+ARCBOT
+             ''')
         
 
-def sendEmail(email,name,day,time):
-    print()
-    #TODO: implement this
     
