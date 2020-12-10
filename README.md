@@ -30,8 +30,6 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
-  * [About the Project]
-  * [Modules & API]
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 
@@ -54,7 +52,7 @@ If a new submission is found, the script will simply compare with google sheets 
 
 ![Email](/images/email.png)
 
-For demonstration purposes, I used my personal emailbot *tylerkim.bot@gmail.com*. 
+This project dates back to April 2019 when I was a senior at Kent. The original idea was to use chatbots using iMessages to perform the same function, but I was set back with several obstacles regarding school's web server security and questionable stability upon my graduation. This demonstration was simply to spark new ideas to current members of Kent Coding Club rather than a serious attempt to change Kent School Library's on-going system. However, I do hope that a more efficient signup system is implemented someday whether it's by another student, faculty member, or myself.
 
 <!-- CONTACT -->
 ## Contact
