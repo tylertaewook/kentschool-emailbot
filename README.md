@@ -40,24 +40,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Peer Tutor Signup
+This emailBot is a demonstration project used in my automation proposal made to Kent School Library in November 2020.
+The main idea in this proposal was to change ARC(Writing Lab)'s sign-up system from handwriting on whiteboard to simple google forms/sheets.
 
-Name:
-Email:
-Time Slot:
-Tutor:
-Help with:
+Instead of students having to travel across the campus to write their name on library's whiteboard, using simple python scripts and google forms can make ARC reservation as easy as click of a button.
+Of course, when they want to make a reservation, they will have to check what timeslot/tutor/teacher are available.
+Rather than tediously visiting library several times a day to check the whiteboard, students can check the real-time timetable anywhere anytime using their phone.
+This google sheet can only be editted by scripts to prevent others from changing schedules to their advantage. (Trust me, it happened a lot)
+![Google Sheets](/images/sheets.png)
 
+ARC-checker.py runs every five minutes to check for any new form submissions.
+If a new submission is found, the script will simply compare with google sheets to check if a desired timeslot is available, and send a confirmation/rejection email to both students and tutor/teacher.
 
+![Email](/images/email.png)
 
-ARC Signup
-
-Name:
-Email:
-Time Slot:
-Course:
-Teacher:
-
+For demonstration purposes, I used my personal emailbot *tylerkim.bot@gmail.com*. 
 
 <!-- CONTACT -->
 ## Contact
